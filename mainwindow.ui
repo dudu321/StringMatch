@@ -24,11 +24,11 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab1">
        <attribute name="title">
-        <string>Solution</string>
+        <string>Mathcer</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
@@ -50,7 +50,7 @@
            </widget>
           </item>
           <item row="2" column="5">
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="bt_reset">
             <property name="text">
              <string>   Reset   </string>
             </property>
@@ -64,7 +64,7 @@
            </widget>
           </item>
           <item row="2" column="4">
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="bt_solve">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
               <horstretch>0</horstretch>
@@ -72,19 +72,19 @@
              </sizepolicy>
             </property>
             <property name="text">
-             <string>   Solve   </string>
+             <string>   Match   </string>
             </property>
            </widget>
           </item>
           <item row="4" column="0" colspan="6">
-           <widget class="QTextEdit" name="textEdit_2">
+           <widget class="QTextEdit" name="t_output">
             <property name="readOnly">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="0" column="0" colspan="6">
-           <widget class="QTextEdit" name="textEdit">
+           <widget class="QTextEdit" name="t_input">
             <property name="placeholderText">
              <string>Input...</string>
             </property>
@@ -107,7 +107,10 @@
            </spacer>
           </item>
           <item row="2" column="3">
-           <widget class="QSpinBox" name="spinBox">
+           <widget class="QSpinBox" name="s_width">
+            <property name="maximum">
+             <number>1000</number>
+            </property>
             <property name="value">
              <number>10</number>
             </property>
@@ -116,7 +119,7 @@
          </layout>
         </item>
         <item row="1" column="0">
-         <widget class="QLabel" name="label_7">
+         <widget class="QLabel" name="status_1">
           <property name="text">
            <string>Ready.</string>
           </property>
@@ -132,7 +135,7 @@
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="4" column="2">
-           <widget class="QTextEdit" name="textEdit_4">
+           <widget class="QTextEdit" name="hout">
             <property name="readOnly">
              <bool>true</bool>
             </property>
@@ -152,18 +155,8 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0" rowspan="4">
-           <widget class="QListView" name="listView">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-           </widget>
-          </item>
           <item row="2" column="1" colspan="2">
-           <widget class="QTextEdit" name="textEdit_3">
+           <widget class="QTextEdit" name="hin">
             <property name="readOnly">
              <bool>true</bool>
             </property>
@@ -176,10 +169,20 @@
             </property>
            </widget>
           </item>
+          <item row="1" column="0" rowspan="4">
+           <widget class="QListWidget" name="hlist">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item row="1" column="0">
-         <widget class="QLabel" name="label_6">
+         <widget class="QLabel" name="status_2">
           <property name="text">
            <string>No record yet.</string>
           </property>

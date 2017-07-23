@@ -28,8 +28,11 @@ bool operator < (const string &a, const string &b) {
     for(int i = 0; i < a.size(); i++) if(a[i] != b[i]) return a[i] < b[i];
     return false;
 }
-void f(string str, stringstream &sout) {
-    for(auto &c : str) c -= '0';
+int f(string str, stringstream &sout, int width) {
+    buffer.resize(str.size() + 5);
+    int sum = 0;
+    for(auto &c : str) c -= '0', sum += c;
+    if(sum == 0) str[0] = 1, str.push_back(0);
     min_t.clear();
     for(int l = 1; l <= str.size(); l++) for(int t = 1; t <= l; t++) {
         bf_s = bf_l = 0;
@@ -64,7 +67,7 @@ void f(string str, stringstream &sout) {
     int i = str.size() - 1, nxt_s = i + min_offset;
     bf_s = 0, bf_l = min_t.size();
     for(int j = 0; j < min_t.size(); j++) buffer[fab(bf_s + j)] = min_t[j];
-    for(int cnt = 0; cnt < 10; cnt++) {
+    for(int cnt = 0; cnt < width; cnt++) {
         if(++i == nxt_s) {
             if(increase()) buffer[fab(--bf_s)] = 1, ++bf_l;
             nxt_s += bf_l;
@@ -72,9 +75,14 @@ void f(string str, stringstream &sout) {
         sout << buffer[fab(bf_s + bf_l - nxt_s + i)];
     }
     sout << endl;
-    for(int cnt = 0; cnt < 10;) {
-        if(i-- == nxt_s - bf_l) decrease(), nxt_s = i + 1;
+    for(int cnt = 0; cnt < width;) {
+        if(i-- == nxt_s - bf_l) {
+            decrease(), nxt_s = i + 1;
+            if(buffer[fab(bf_s)] == 0) break;
+        }
         if(i < 0) sout << buffer[fab(bf_s + bf_l - nxt_s + i)], cnt++;
     }
+    sout<<endl;
+    return sum;
 }
 
